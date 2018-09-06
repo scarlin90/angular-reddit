@@ -3,12 +3,14 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
+import { AppStateModule } from "./state/state.module";
+
 import { AppComponent } from "./app.component";
 import { ArticleComponent } from "./article/article.component";
 
 @NgModule({
   declarations: [AppComponent, ArticleComponent],
-  imports: [BrowserModule, FormsModule, HttpModule],
+  imports: [BrowserModule, AppStateModule, FormsModule, HttpModule],
   providers: [],
   bootstrap: [AppComponent]
 })

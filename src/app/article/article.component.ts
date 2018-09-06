@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, HostBinding } from "@angular/core";
-import { Article } from "./article.model";
+import { Article } from "../state/models/article.model";
+
+import { AppStateService } from "../state/state.service";
 
 @Component({
   selector: "app-article",
@@ -10,12 +12,12 @@ export class ArticleComponent implements OnInit {
   @HostBinding("attr.class") cssClass = "row";
   @Input() article: Article;
 
-  constructor() {}
+  constructor(private _appStateService: AppStateService) {}
 
   ngOnInit() {}
 
   voteUp(): boolean {
-    this.article.voteUp();
+    this._appStateService.upvoteArticle(this.article);
     return false;
   }
 

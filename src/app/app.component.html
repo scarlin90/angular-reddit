@@ -17,9 +17,9 @@
 
 </form>
 
-<div class="ui grid posts">
+<div class="ui grid posts" *ngIf="articles$ | async as articlesState">
   <app-article
-    *ngFor="let article of sortedArticles()"
+    *ngFor="let article of articlesState.articles"
     [article]="article">
   </app-article>
 </div>
