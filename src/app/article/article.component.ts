@@ -1,26 +1,28 @@
-import { Component, OnInit, Input, HostBinding } from "@angular/core";
-import { Article } from "./article.model";
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
+
+import { Article } from '../state/models/article.model';
+import { ArticleService } from '../state/services/article.service';
 
 @Component({
-  selector: "app-article",
-  templateUrl: "./article.component.html",
-  styleUrls: ["./article.component.css"]
+  selector: 'app-article',
+  templateUrl: './article.component.html',
+  styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-  @HostBinding("attr.class") cssClass = "row";
+  @HostBinding('attr.class') cssClass = 'row';
   @Input() article: Article;
 
-  constructor() {}
+  constructor(private _articleService: ArticleService) {}
 
   ngOnInit() {}
 
   voteUp(): boolean {
-    this.article.voteUp();
+    this._articleService.updateVoteCount(this.article.id);
     return false;
   }
 
   voteDown(): boolean {
-    this.article.voteDown();
+    this._articleService.updateVoteCount(this.article.id, -1);
     return false;
   }
 }

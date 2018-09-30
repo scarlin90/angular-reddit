@@ -21,6 +21,7 @@
     "@angular/platform-browser": "6.0.0",
     "@angular/platform-browser-dynamic": "6.0.0",
     "@angular/router": "6.0.0",
+    "@datorama/akita": "^1.9.6",
     "@types/jasmine": "2.5.53",
     "@types/jasminewd2": "2.0.2",
     "core-js": "2.4.1",
